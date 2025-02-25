@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - 秦启瑞</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+            color: #333;
+            transition: background 0.5s ease;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .sidebar {
+            position: fixed; /* 使用fixed定位 */
+            left: 50px; /* 距离左边框的距离 */
+            top: 50%;
+            transform: translateY(-50%); /* 垂直居中 */
+            width: 20%;
+            background-color: rgba(255, 255, 255, 0); /* 背景透明 */
+            padding: 20px;
+            box-shadow: none; /* 去掉阴影 */
+            height: fit-content;
+        }
+
+        .sidebar a {
+            display: block;
+            margin: 10px 0;
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            color: #007BFF;
+        }
+
+        .container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            max-width: 800px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            transition: color 0.3s ease;
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        .entry {
+            margin-bottom: 20px;
+        }
+
+        .entry h3 {
+            margin: 0;
+            font-size: 20px;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .entry p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .entry ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .entry ul li {
+            margin-bottom: 5px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+                margin-bottom: 20px;
+                left: 0;
+                top: 0;
+                transform: none;
+            }
+
+            .container {
+                width: 95%;
+                padding: 20px;
+                margin: 30px auto;
+            }
+
+            header img {
+                width: 100px;
+                height: 100px;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            header p {
+                font-size: 16px;
+            }
+
+            .section h2 {
+                font-size: 20px;
+            }
+
+            .entry h3 {
+                font-size: 18px;
+            }
+
+            .entry p, .entry ul li {
+                font-size: 14px;
+            }
+        }
+
+        /* 添加的动画效果 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* 鼠标悬停效果 */
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        header h1:hover, .section h2:hover, .entry h3:hover {
+            color: #007BFF;
+        }
+
+        /* 图标样式 */
+        .icon {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 10px;
+            background-size: cover;
+        }
+
+        .icon.phone {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#333" d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1-.45 1-.99V7.02c0-.55-.45-1-1-.99-1.25 0-2.46-.2-3.59-.57-.35-.12-.74.01-.99.24l-2.2 2.2z"/></svg>');
+        }
+
+        .icon.email {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#333" d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>');
+        }
+
+        .icon.linkedin {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#333" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-2 4.66V7h-3v3.66H11V7h-3v3.66H5v3.34h3v-2.5c0-1.38.46-2.5 1.64-2.5h.36v2.5h3v-2.5c1.18 0 1.64 1.12 1.64 2.5v3.34h3zm-8 0V7H7v3.66H4V11h3v2.5c0 1.38.46 2.5 1.64 2.5h.36v-2.5h3v2.5c1.18 0 1.64-1.12 1.64-2.5v-3.34H13zm5 4.34c-.77 0-1.38-.61-1.38-1.38s.61-1.38 1.38-1.38 1.38.61 1.38 1.38-.61 1.38-1.38 1.38z"/></svg>');
+        }
+
+        .icon.achievement {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#333" d="M12 2L2 22h20L12 2zm0 18l-2-2h4l-2 2zm0-6l-2-2h4l-2 2zm0-6l-2-2h4l-2 2z"/></svg>');
+        }
+
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <a href="#education">教育背景</a>
+    <a href="#experience">工作经验</a>
+    <a href="#projects">项目经验</a>
+    <a href="#achievements">成就</a>
+</div>
+<div class="container fade-in">
+    <header>
+        <img src="path/to/your/photo.jpg" alt="秦启瑞的头像">
+        <h1>秦启瑞</h1>
+        <p>本科在读 | 郑州</p>
+        <div class="contact-info">
+            <p><span class="icon phone"></span><strong>电话:</strong> [电话]</p>
+            <p><span class="icon email"></span><strong>邮箱:</strong> [邮箱]</p>
+            <p><span class="icon linkedin"></span><strong>LinkedIn:</strong> <a href="[LinkedIn URL]">[LinkedIn URL]</a></p>
+        </div>
+    </header>
+    <section class="section" id="education">
+        <h2>教育背景</h2>
+        <div class="entry fade-in">
+            <h3>本科在读</h3>
+            <p><strong>华北水利水电大学</strong> | 2023 - 2027</p>
+            <p>主修课程: [课程]</p>
+        </div>
+    </section>
+    <section class="section" id="experience">
+        <h2>工作经验</h2>
+        <div class="entry fade-in">
+            <h3>[职位]</h3>
+            <p><strong>[公司]</strong> | [开始年份] - [结束年份]</p>
+            <ul>
+                <li>[职责1]</li>
+                <li>[职责2]</li>
+                <li>[职责3]</li>
+            </ul>
+        </div>
+        <div class="entry fade-in">
+            <h3>[职位]</h3>
+            <p><strong>[公司]</strong> | [开始年份] - [结束年份]</p>
+            <ul>
+                <li>[职责1]</li>
+                <li>[职责2]</li>
+                <li>[职责3]</li>
+            </ul>
+        </div>
+    </section>
+    <section class="section" id="projects">
+        <h2>项目经验</h2>
+        <div class="entry fade-in">
+            <h3>[项目名称]</h3>
+            <p><strong>技术栈:</strong> [技术栈]</p>
+            <ul>
+                <li>[描述1]</li>
+                <li>[描述2]</li>
+                <li>[描述3]</li>
+            </ul>
+        </div>
+        <div class="entry fade-in">
+            <h3>[项目名称]</h3>
+            <p><strong>技术栈:</strong> [技术栈]</p>
+            <ul>
+                <li>[描述1]</li>
+                <li>[描述2]</li>
+                <li>[描述3]</li>
+            </ul>
+        </div>
+    </section>
+    <section class="section" id="achievements">
+        <h2>成就</h2>
+        <div class="entry fade-in">
+            <span class="icon achievement"></span>
+            <h3>[成就名称]</h3>
+            <p><strong>[公司]</strong> | [年份]</p>
+            <p>[描述]</p>
+        </div>
+        <div class="entry fade-in">
+            <span class="icon achievement"></span>
+            <h3>[成就名称]</h3>
+            <p><strong>[公司]</strong> | [年份]</p>
+            <p>[描述]</p>
+        </div>
+    </section>
+</div>
+</body>
+</html>
